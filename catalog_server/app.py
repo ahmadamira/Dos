@@ -4,8 +4,7 @@ from errorhandles import *  # Import error handlers directly
 from routes import *  # Import routes directly
 from database import create_database
 
-# Create the Flask application instance
-app = Flask(__name__)
+
 
 # Import error handler overrides (assuming errorhandles.py contains the overrides)
 import errorhandles

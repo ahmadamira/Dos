@@ -19,8 +19,9 @@ database_init=[]
 
 # Create the database if it does not exist and add all initial objects
 def create_database():
-    db.create_all()
-    for item in database_init:
-        db.session.add(item)
-    db.session.commit()
+    with app.app_context():
+        db.create_all()
+        for item in database_init:
+            db.session.add(item)
+        db.session.commit()
 

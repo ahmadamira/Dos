@@ -46,7 +46,7 @@ class Book(db.Model):
 # Add the 4 books as an initial entry to the database
 database_init += [
     Book('How to get a good grade in DOS in 40 minutes a day', 'Distributed Systems', 12, 30.00),
-    Book('RPCs for Noobs', 17, 40.00),
+    Book('RPCs for Noobs','Distributed Systems', 17, 40.00),
     Book('Xen and the Art of Surviving Undergraduate School', 'Graduate School', 14, 10.00),
     Book('Cooking for the Impatient Undergrad', 'Graduate School', 16, 20.00)
 ]

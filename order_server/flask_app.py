@@ -13,7 +13,7 @@ app.config['FLASK_ENV'] = environ.get('FLASK_ENV', 'production')  # Default to '
 app.config['FLASK_DEBUG'] = bool(environ.get('FLASK_DEBUG', False))  # Default to False
 
 # Get the application port from the environment variables, defaulting to 5000 if not set
-port = int(environ.get('FLASK_PORT', 5001))
+port = 5001
 
 if __name__ == '__main__':
     # Run the Flask application instance

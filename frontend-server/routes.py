@@ -1,12 +1,13 @@
-from flask_app import app, CATALOG_ADDRESS, ORDER_ADDRESS
+from flask_app import app
 import requests
 
-
+CATALOG_ADDRESS = "http://127.0.0.1:5000"
+ORDER_ADDRESS = "http://127.0.0.1:5001"
 # Search endpoint
 @app.route('/search/<book_topic>', methods=['GET'])
 def search(book_topic):
     # Get book from the catalog server
-    response = requests.get(f'{CATALOG_ADDRESS}/query/topic/{book_topic}')
+    response = requests.get(f'{CATALOG_ADDRESS}/search/by_topic/{book_topic}')
 
     # Return the catalog server response as-is
     return response.text, response.status_code, response.headers.items()
@@ -20,7 +21,7 @@ def lookup(book_id):
         return {'message': 'Book ID must be a number'}, 422
 
     # Get the list of books from the catalog server
-    response = requests.get(f'{CATALOG_ADDRESS}/query/item/{book_id}')
+    response = requests.get(f'{CATALOG_ADDRESS}/search/by_item/{book_id}')
 
     # If the response status is 404 not found, override the error message
     if response.status_code == 404:

@@ -2,7 +2,7 @@
 from flask_app import app, port
 
 # Import the error handler overrides
-import errorhandlers
+import error
 
 # Import the routes
 import routes

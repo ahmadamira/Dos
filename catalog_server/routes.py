@@ -3,10 +3,10 @@ from flask_app import app
 from book import Book, topic_schema, item_schema, update_schema
 
 def retrieve_item(book_id):
-    return Book.retrieve_by_id(book_id)
+    return Book.get(book_id)
 
 def retrieve_by_topic(book_topic):
-    return Book.retrieve_by_topic(book_topic)
+    return Book.search(book_topic)
 
 queries = {
     'by_item': {
@@ -43,9 +43,7 @@ def update(book_id):
         book_data = {}
 
     modified_book = Book.update(book_id,
-                               title=book_data.get('title'),
                                quantity=book_data.get('quantity'),
-                               topic=book_data.get('topic'),
                                price=book_data.get('price'))
 
     if modified_book is None:

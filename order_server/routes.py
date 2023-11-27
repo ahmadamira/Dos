@@ -1,7 +1,7 @@
 from flask_app import app
 import requests
 
-CATALOG_ADDRESS = "http://127.0.0.1:5000"
+CATALOG_ADDRESS = "http://flask_app_1:5000"  # Use the service name and port of the catalog server
 
 @app.route('/buy/<book_id>', methods=['PUT'])
 def buy(book_id):
@@ -28,4 +28,3 @@ def buy(book_id):
         return {'message': 'Error updating the catalog server.'}, 500
 
     return {'success': True, 'message': 'Book purchased successfully.'}
-

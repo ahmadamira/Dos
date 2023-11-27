@@ -14,4 +14,4 @@ app.config['FLASK_ENV'] = environ.get('FLASK_ENV')
 app.config['FLASK_DEBUG'] = bool(environ.get('FLASK_DEBUG'))
 
 # Get the application port from the environment variables
-port = 5003
+port = int(environ.get('FLASK_PORT',5003))

@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  flask_app_1:
+    image: catalogserver
+    ports:
+      - "5000:5000"
+    networks:
+      - flask_network
+
+  flask_app_2:
+    image: orderservered
+    ports:
+      - "5001:5001"
+    networks:
+      - flask_network
+
+  flask_app_3:
+    image: frontendservered
+    ports:
+      - "5003:5003"
+    networks:
+      - flask_network
+
+networks:
+  flask_network:
+    driver: bridge

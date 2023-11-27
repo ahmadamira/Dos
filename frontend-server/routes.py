@@ -1,8 +1,9 @@
 from flask_app import app
 import requests
 
-CATALOG_ADDRESS = "http://127.0.0.1:5000"
-ORDER_ADDRESS = "http://127.0.0.1:5001"
+CATALOG_ADDRESS = "http://flask_app_1:5000"
+ORDER_ADDRESS = "http://flask_app_2:5001"
+
 # Search endpoint
 @app.route('/search/<book_topic>', methods=['GET'])
 def search(book_topic):

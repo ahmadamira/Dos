@@ -7,6 +7,11 @@ app = Flask(__name__)
 # Retrieve addresses of the front end and order servers from environment variables
 ORDER_ADDRESS = environ.get('ORDER_ADDRESS')
 FRONT_END_ADDRESS = environ.get('FRONT_END_ADDRESS')
+CATALOG_ADDRESSES = environ.get('CATALOG_ADDRESSES')
+if CATALOG_ADDRESSES is None or CATALOG_ADDRESSES.strip() == '':
+    CATALOG_ADDRESSES = []
+else:
+    CATALOG_ADDRESSES = CATALOG_ADDRESSES.split('|')
 
 # Configure Flask environment settings
 app.config['FLASK_ENV'] = environ.get('FLASK_ENV', 'production')  # Default to 'production'

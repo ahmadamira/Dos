@@ -16,6 +16,8 @@ def buy(book_id):
     elif book_response.status_code != 200:
         return {'message': 'Error querying the catalog server.'}, 500
 
+        
+
     book = book_response.json()
 
     if book['quantity'] <= 0:

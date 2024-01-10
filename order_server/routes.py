@@ -17,7 +17,7 @@ def buy(book_id):
     while True:
         try:
             # Query the book from the catalog server
-            book_response = requests.get(f'{CATALOG_ADDRESS}/search/by_item/{book_id}')
+            book_response = requests.get(f'{CATALOG_ADDRESSE}/search/by_item/{book_id}')
 
         except requests.RequestException:
             return {'message': 'Could not connect to the catalog server'}, 504
@@ -37,7 +37,7 @@ def buy(book_id):
 
         try:
             # Update the book quantity on the catalog server
-            update_response = requests.put(f'{CATALOG_ADDRESS}/modify/{book_id}', json={'quantity': book['quantity'] - 1})
+            update_response = requests.put(f'{CATALOG_ADDRESSE}/modify/{book_id}', json={'quantity': book['quantity'] - 1})
 
         except requests.RequestException:
             return {'message': 'Could not connect to the catalog server'}, 504

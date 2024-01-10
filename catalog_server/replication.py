@@ -3,9 +3,13 @@ from flask_app import  app
 from requests import RequestException
 from book import Book, replication_schema
 from flask import request
-CATALOG_ADDRESS = "http://flask_app_1:5000"
 import requests
 
+
+CATALOG_ADDRESSES = [
+    "http://catalog_server_1:5000",
+    "http://catalog_server_2:5007"
+]
 
 # 1 second timeout for all connection
 # 100 millisecond timeout for connection establishment

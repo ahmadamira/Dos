@@ -1,7 +1,11 @@
 from flask_app import app
 import requests
 
-CATALOG_ADDRESS = "http://flask_app_1:5000"  # Use the service name and port of the catalog server
+CATALOG_ADDRESSE = [
+    "http://catalog_server_1:5000",
+    "http://catalog_server_2:5007"
+]
+
 
 timeout = (0.15, 1.5)
 

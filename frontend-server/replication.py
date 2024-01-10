@@ -1,7 +1,14 @@
-from flask_app  import app
+from flask_app import app
 
-CATALOG_ADDRESS = "http://flask_app_1:5000"
-ORDER_ADDRESS = "http://flask_app_2:5001"
+CATALOG_ADDRESSES = [
+    "http://catalog_server_1:5000",
+    "http://catalog_server_2:5007"
+]
+
+ORDER_ADDRESSES = [
+    "http://order_server_1:5001",
+    "http://order_server_2:5009"
+]
 
 # Define a new Replication class
 class CustomReplication:
@@ -29,7 +36,7 @@ class CustomReplication:
 
 
 # Create an instance of the new Replication class
-custom_replication = CustomReplication(CATALOG_ADDRESS, ORDER_ADDRESS)
+custom_replication = CustomReplication(CATALOG_ADDRESSES, ORDER_ADDRESSES)
 
 # Define timeout values
 custom_timeout = (0.2, 2.0)

@@ -1,7 +1,11 @@
 from flask_app import app
 import requests
 
-CATALOG_ADDRESS = "http://flask_app_1:5000"  # Use the service name and port of the catalog server
+CATALOG_ADDRESSE = [
+    "http://catalog_server_1:5000",
+    "http://catalog_server_2:5007"
+]
+
 
 timeout = (0.15, 1.5)
 
@@ -13,7 +17,7 @@ def buy(book_id):
     while True:
         try:
             # Query the book from the catalog server
-            book_response = requests.get(f'{CATALOG_ADDRESS}/search/by_item/{book_id}')
+            book_response = requests.get(f'{CATALOG_ADDRESSE}/search/by_item/{book_id}')
 
         except requests.RequestException:
             return {'message': 'Could not connect to the catalog server'}, 504
@@ -33,7 +37,7 @@ def buy(book_id):
 
         try:
             # Update the book quantity on the catalog server
-            update_response = requests.put(f'{CATALOG_ADDRESS}/modify/{book_id}', json={'quantity': book['quantity'] - 1})
+            update_response = requests.put(f'{CATALOG_ADDRESSE}/modify/{book_id}', json={'quantity': book['quantity'] - 1})
 
         except requests.RequestException:
             return {'message': 'Could not connect to the catalog server'}, 504

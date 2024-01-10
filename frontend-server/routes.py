@@ -14,6 +14,7 @@ def search(book_topic):
 
     # Times to try to connect to catalog servers
     tries = custom_replication.get_catalog_count()
+    print(tries)
 
     for request_try in range(tries):
         try:

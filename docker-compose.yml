@@ -1,21 +1,35 @@
 version: "3"
 
 services:
-  flask_app_1:
+  catalog_server_1:
     image: catalogserver
     ports:
       - "5000:5000"
     networks:
       - flask_network
 
-  flask_app_2:
+  catalog_server_2:
+    image: catalogserver
+    ports:
+      - "5007:5000"
+    networks:
+      - flask_network
+
+  order_server_1:
     image: orderservered
     ports:
       - "5001:5001"
     networks:
       - flask_network
 
-  flask_app_3:
+  order_server_2:
+    image: orderservered
+    ports:
+      - "5009:5001"
+    networks:
+      - flask_network
+
+  frontend_server:
     image: frontendservered
     ports:
       - "5003:5003"
